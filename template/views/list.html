@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layouts/default" >
+<head>
+    <meta charset="utf-8" th:remove="all">
+    <title>列表页</title>
+    <!-- Bootstrap -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen" th:remove="all">
+    <link rel="shortcut icon" href="../../ico/favicon.png" th:remove="all">
+
+    <script src="../../js/jquery-2.0.3.min.js" th:remove="all"></script>
+    <script src="../../js/bootstrap.min.js" th:remove="all"></script>
+</head>
+<body>
+    <div class="container" layout:fragment="content">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="media" th:each="blog : ${blogs}">
+                    <a class="pull-left thumbnail" href="#" th:href="'blog/' + ${blog.id()}">
+                        <img class="media-object" src="http://placehold.it/200x160"/>
+                    </a>
+                    <div class="media-body">
+                        <h2 class="media-heading">
+                            <a href="#" th:href="'blog/' + ${blog.id()}" th:text="${blog.title()}">慈善背后，Google、Facebook们如何玩转新兴市场的移动互联网</a>
+                        </h2>
+                        <ul class="list-inline">
+                            <li><small>罗天保</small></li>
+                            <li><small th:text="${#dates.format(new java.util.Date(blog.lastUpdated()),'yyyy-MM-dd')}">2013-08-27</small></li>
+                        </ul>
+                        <p th:utext="${blog.content()}">“让所有人都能上网！”——世界级巨头最近一窝蜂地忙着让没有网络的人享受网络——通过自己的服务有网可连，降低甚至免去上网费用。只是慈善背后，还有巨头们不愿说的巨大</p>
+                        <ul class="list-inline">
+                            <li>谷歌</li>
+                            <li>Facebook</li>
+                            <li>Twitter</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="media" th:remove="all">
+                    <a class="pull-left thumbnail" href="">
+                        <img class="media-object" src="http://placehold.it/200x160"/>
+                    </a>
+                    <div class="media-body">
+                        <h2 class="media-heading">
+                            <a href="#">慈善背后，Google、Facebook们如何玩转新兴市场的移动互联网</a>
+                        </h2>
+                        <ul class="list-inline">
+                            <li><small>罗天保</small></li>
+                            <li><small>2013-08-27</small></li>
+                        </ul>
+                        <p>“让所有人都能上网！”——世界级巨头最近一窝蜂地忙着让没有网络的人享受网络——通过自己的服务有网可连，降低甚至免去上网费用。只是慈善背后，还有巨头们不愿说的巨大</p>
+                        <ul class="list-inline">
+                            <li>谷歌</li>
+                            <li>Facebook</li>
+                            <li>Twitter</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="media" th:remove="all">
+                    <a class="pull-left thumbnail" href="">
+                        <img class="media-object" src="http://placehold.it/200x160"/>
+                    </a>
+                    <div class="media-body">
+                        <h2 class="media-heading">
+                            <a href="#">慈善背后，Google、Facebook们如何玩转新兴市场的移动互联网</a>
+                        </h2>
+                        <ul class="list-inline">
+                            <li><small>罗天保</small></li>
+                            <li><small>2013-08-27</small></li>
+                        </ul>
+                        <p>“让所有人都能上网！”——世界级巨头最近一窝蜂地忙着让没有网络的人享受网络——通过自己的服务有网可连，降低甚至免去上网费用。只是慈善背后，还有巨头们不愿说的巨大</p>
+                        <ul class="list-inline">
+                            <li>谷歌</li>
+                            <li>Facebook</li>
+                            <li>Twitter</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="media" th:remove="all">
+                    <a class="pull-left thumbnail" href="">
+                        <img class="media-object" src="http://placehold.it/200x160"/>
+                    </a>
+                    <div class="media-body">
+                        <h2 class="media-heading">
+                            <a href="#">慈善背后，Google、Facebook们如何玩转新兴市场的移动互联网</a>
+                        </h2>
+                        <ul class="list-inline">
+                            <li><small>罗天保</small></li>
+                            <li><small>2013-08-27</small></li>
+                        </ul>
+                        <p>“让所有人都能上网！”——世界级巨头最近一窝蜂地忙着让没有网络的人享受网络——通过自己的服务有网可连，降低甚至免去上网费用。只是慈善背后，还有巨头们不愿说的巨大</p>
+                        <ul class="list-inline">
+                            <li>谷歌</li>
+                            <li>Facebook</li>
+                            <li>Twitter</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <ul class="pager">
+                        <li class="previous"><a href="#">&larr;Older</a></li>
+                        <li class="next"><a href="#">&rarr;Newer</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <h3 class="panel-heading">Action</h3>
+                    <div class="panel-body">
+                        <a href="edit" class="btn btn-primary">新写一篇</a>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <h3 class="panel-heading">相关文章</h3>
+
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <h4 class="list-group-item-heading"><a href="#">慈善背后，Google、Facebook们如何玩转新兴市场的移动互联网</a></h4>
+                            <p class="list-group-item-text">“让所有人都能上网！”——世界级巨头最近一窝蜂地忙着让没有网络的人享受网络——通过自己的服务有网可连，降低甚至免去上网费用。只是慈善背后，还有巨头们不愿说的巨大</p>
+                        </li>
+                        <li class="list-group-item">
+                            <h4 class="list-group-item-heading"><a href="#">慈善背后，Google、Facebook们如何玩转新兴市场的移动互联网</a></h4>
+                            <p class="list-group-item-text">“让所有人都能上网！”——世界级巨头最近一窝蜂地忙着让没有网络的人享受网络——通过自己的服务有网可连，降低甚至免去上网费用。只是慈善背后，还有巨头们不愿说的巨大</p>
+                        </li>
+                        <li class="list-group-item">
+                            <h4 class="list-group-item-heading"><a href="#">慈善背后，Google、Facebook们如何玩转新兴市场的移动互联网</a></h4>
+                            <p class="list-group-item-text">“让所有人都能上网！”——世界级巨头最近一窝蜂地忙着让没有网络的人享受网络——通过自己的服务有网可连，降低甚至免去上网费用。只是慈善背后，还有巨头们不愿说的巨大</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel panel-default">
+                    <h3 class="panel-heading">相关文章</h3>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="#">慈善背后，Google、Facebook们如何玩转新兴市场的移动互联网</a></li>
+                        <li class="list-group-item"><a href="#">慈善背后，Google、Facebook们如何玩转新兴市场的移动互联网</a></li>
+                        <li class="list-group-item"><a href="#">慈善背后，Google、Facebook们如何玩转新兴市场的移动互联网</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
